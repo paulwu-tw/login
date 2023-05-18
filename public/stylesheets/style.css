@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(52, 50, 50);
+    font-family: 'Roboto', sans-serif;
+}
+
+.body-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 150px;
+}
+
+h1 {
+    text-align: center;
+    /* padding-top: 150px; */
+    font-size: 40px;
+    font-weight: 900;
+    color: rgb(208, 104, 29);
+}
+
+#login-panel {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 450px;
+    height: 200px;
+}
+
+input {
+    text-align: center;
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(180, 172, 172);
+}
+
+.failed-msg {
+    color: rgb(170, 39, 39);
+    font-size: 25px;
+    font-weight: 700;
+    background-color: black;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}

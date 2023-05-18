@@ -1,0 +1,19 @@
+<h1>Account login</h1>
+{{#if message}}
+<form action="/" method="POST">
+    <div id="login-panel">
+        <p class="failed-msg">{{message}}</p>
+        <input type="email" placeholder="user@example.com" name="email" value="{{email}}" required>
+        <input type="password" name="password" value="{{password}}" required>
+        <button class="btn btn-success" type="submit">Login</button>
+    </div>
+</form>
+{{else}}
+<form action="/" method="POST">
+    <div id="login-panel">
+        <input type="email" placeholder="user@example.com" name="email" required>
+        <input type="password" name="password" required>
+        <button class="btn btn-success" type="submit">Login</button>
+    </div>
+</form>
+{{/if}}
