@@ -1,5 +1,7 @@
 const express = require('express')
 const hbs = require('express-handlebars')
+const session = require('express-session')
+const usePassport = require('./config/passport')
 // use express router
 const routes = require('./routes')
 
@@ -10,7 +12,14 @@ app.engine('hbs', hbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(session({
+    secret: 'acLoginSecret',
+    resave: false,
+    saveUninitialized: true
+}))
+usePassport(app)
 app.use(routes)
+
 
 
 
