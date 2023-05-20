@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const passport = require('passport')
 
 const users = [
     {
@@ -34,25 +33,14 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-router.post('/', passport.authenticate('local', {
-    successRedirect: '/welcome',
-    failureRedirect: '/',
-    failureFlash: true
-}))
-
-router.get('/welcome', (req, res) => {
-    res.render('welcome', { firstName: req.user.firstName })
+router.post('/', (req, res) => {
+    const {email, password} = req.body
+    const user = users.find(user => user.email === email && user.password === password)
+    if (user) {
+        res.render('welcome', { firstName: user.firstName })
+    } else {
+        res.render('index', { email, password, message: 'Email or Password not correct!' })
+    }
 })
-
-// router.post('/', (req, res) => {
-//     const {email, password} = req.body
-//     const user = users.find(user => user.email === email && user.password === password)
-//     if (user) {
-//         res.render('welcome', { firstName: user.firstName })
-//     } else {
-//         res.render('index', { email, password, message: 'Email or Password not correct!' })
-//     }
-// })
-
 
 module.exports = router
